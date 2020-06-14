@@ -411,6 +411,7 @@ def simulate_network(scenario, installations_percent, cooperation_percent, insta
             net, element='load', element_index=load_index, variable='p_mw', data_source=load_profile, profile_name='mult', recycle=False
         )
 
+    for original_index, row in installation_buses.iterrows():
         if scenario.get('EV') == True:
             ev_index = pandapower.create_load(net, bus=row.bus, p_mw=0)
             ev_profile_raw = pandas.read_csv(
