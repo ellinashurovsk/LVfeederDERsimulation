@@ -34,7 +34,7 @@ DER_INSTALLATIONS_PERCENT_STEP = 10
 DER_COOPERATION_PERCENT_STEP = 25
 BUS_LIMIT = 55
 
-# для отладки можно закомментить сроки сверху и раскомментить эти:
+# the following part of the code is for debugging (the lines from above should be commented)
 
 # SKIP_EXISTING = False
 # PRINT_SKIPPING_LINES = False
