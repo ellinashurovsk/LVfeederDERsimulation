@@ -553,7 +553,7 @@ def compute_graph_data(scenario, x):
             vm_lv_pu_abs_mean = vm_lv_pu_raw_clear_abs.mean()[0]
 
             p_lv_mw_abs_max = p_lv_mw_raw_clear_abs.max()[0]
-            p_lv_mw_abs_mean = p_lv_mw_raw_clear_abs.max()[0]
+            p_lv_mw_abs_mean = p_lv_mw_raw_clear_abs.mean()[0]
 
             load_factor = p_to_mw_abs_mean / p_to_mw_abs_max
             voltage_factor = vm_pu_abs_mean / vm_pu_abs_max
