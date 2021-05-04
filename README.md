@@ -24,18 +24,10 @@ If you are on Windows, you should probably be using WSL with some distribution o
 1. Install dependencies by issuing the following command:
 
    ```
-   $ pip install numba==0.49.1 pandas==1.0.4 cvxpy==1.0.31
+   $ pip install -r requirements.txt
    ```
 
-   > Note: you might need to install `wheel` first (`$ pip install wheel`).
-
-1. Install specific version of `pandapower` by issuing the following command:
-
-   ```
-   $ pip install git+https://github.com/lthurner/pandapower.git@1e6f29d632a31acf437d094b69edcefc048dbcfe
-   ```
-
-   > Note: `1e6f29d632a31acf437d094b69edcefc048dbcfe` is the latest commit on branch `develop` as of 2020.06.09. You may try the latest commit (as of now) instead, but it is not guaranteed to work.
+   > Note: using `virtualenv` is preferred.
 
 1. Run the code:
 

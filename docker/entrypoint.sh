@@ -20,5 +20,5 @@ trap 'handle_sig_term' TERM
 I=0
 
 echo "* Starting python script"
-python -u simulation.py & WORKER_PID=$!
+python3 -u simulation.py & WORKER_PID=$!
 wait $WORKER_PID
