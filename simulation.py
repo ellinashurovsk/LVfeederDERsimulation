@@ -74,6 +74,10 @@ def convertStorage(x):
     return -1 * x
 
 
+def convert10minkWhTokW(x):
+    return x * 6
+
+
 def get_scenario_name(scenario):
     result = []
 
@@ -171,7 +175,7 @@ def compute_individual_optimization_fast(scenario, x):
 
         ev_profile_raw = pandas.read_csv(
             "data/source/ev_profiles/EV_home_profiles_{}.csv".format(n + 1), sep=";", decimal=",")
-        evProfile = ev_profile_raw["load"]
+        evProfile = ev_profile_raw["load"].apply(convert10minkWhTokW)
 
         evProfiles.append(evProfile)
 
@@ -306,7 +310,7 @@ def compute_cooperative_optimization(scenario, installations_percent, cooperatio
 
         ev_profile_raw = pandas.read_csv(
             "data/source/ev_profiles/EV_home_profiles_{}.csv".format(n + 1), sep=";", decimal=",")
-        evProfile = ev_profile_raw["load"]
+        evProfile = ev_profile_raw["load"].apply(convert10minkWhTokW)
 
         evProfiles.append(evProfile)
 
@@ -418,7 +422,7 @@ def simulate_network(scenario, installations_percent, cooperation_percent, insta
                 "data/source/ev_profiles/EV_home_profiles_{}.csv".format(original_index+1), sep=";", decimal=","
             )
             ev_profile_raw['load'] = ev_profile_raw['load'].apply(
-                convertkWToMW)
+                convert10minkWhTokW).apply(convertkWToMW)
             ev_profile = frame_data.DFData(pandas.DataFrame(ev_profile_raw))
             ev_controller = ConstControl(
                 net, element='load', element_index=ev_index, variable='p_mw', data_source=ev_profile, profile_name='load', recycle=False
